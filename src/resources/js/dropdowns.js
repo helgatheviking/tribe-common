@@ -443,10 +443,10 @@ var tribe_dropdowns = tribe_dropdowns || {};
 	obj.action_bugfix_group_select = function( event ) {
 		var $select = $( this ),
 			items = $select.selectWoo( 'data' ),
-			$drop = $( '.selectWoo-drop:visible' );
+			$drop = $( '.select2-drop:visible' );
 
 		// Loop on all selected items to see which match our bug
-		$drop.find( '.selectWoo-selected' ).each( function(  ) {
+		$drop.find( '.select2-selected' ).each( function(  ) {
 			var $item = $( this ),
 				item = $item.data( 'select2-data' ),
 				remove = true;
@@ -472,7 +472,7 @@ var tribe_dropdowns = tribe_dropdowns || {};
 
 	obj.action_select2_close = function( event ) {
 		var $select = $( this ),
-			$search = $( '.selectWoo-drop .selectWoo-input.selectWoo-focused' );
+			$search = $( '.select2-drop .select2-input.select2-focused' );
 
 		// If we had a value we apply it again
 		if ( $select.is( '[data-sticky-search]' ) ) {
@@ -482,7 +482,7 @@ var tribe_dropdowns = tribe_dropdowns || {};
 
 	obj.action_select2_open = function( event ) {
 		var $select = $( this ),
-			$search = $( '.selectWoo-drop .selectWoo-input:visible' );
+			$search = $( '.select2-drop .select2-input:visible' );
 
 		// If we have a placeholder for search, apply it!
 		if ( $select.is( '[data-search-placeholder]' ) ) {
@@ -510,7 +510,7 @@ var tribe_dropdowns = tribe_dropdowns || {};
 	 * @return {jQuery}         Affected fields
 	 */
 	obj.dropdown = function( $fields, args ) {
-		var $elements = $fields.not( '.selectWoo-offscreen, .select2-container, ' + obj.selector.created.className() );
+		var $elements = $fields.not( '.select2-offscreen, .select2-container, ' + obj.selector.created.className() );
 
 		if ( 0 === $elements.length ) {
 			return $elements;
