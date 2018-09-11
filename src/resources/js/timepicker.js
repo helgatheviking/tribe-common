@@ -51,7 +51,7 @@ var tribe_timepickers = tribe_timepickers || {};
 
 		// Attach a Click action the Timezone Link
 		$timezoneLink.on( 'click', function( e ) {
-			$timezone = $container.find( obj.selector.timezone ).filter( '.selectWoo-container' );
+			$timezone = $container.find( obj.selector.timezone ).filter( '.select2-container' );
 			e.preventDefault();
 
 			$timezoneLink.hide();

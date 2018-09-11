@@ -510,7 +510,7 @@ var tribe_dropdowns = tribe_dropdowns || {};
 	 * @return {jQuery}         Affected fields
 	 */
 	obj.dropdown = function( $fields, args ) {
-		var $elements = $fields.not( '.selectWoo-offscreen, .selectWoo-container, ' + obj.selector.created.className() );
+		var $elements = $fields.not( '.selectWoo-offscreen, .select2-container, ' + obj.selector.created.className() );
 
 		if ( 0 === $elements.length ) {
 			return $elements;

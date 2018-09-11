@@ -29,7 +29,7 @@
 		dependency: '.tribe-dependency',
 		dependencyVerified: '.tribe-dependency-verified',
 		fields: 'input, select, textarea',
-		advanced_fields: '.selectWoo-container',
+		advanced_fields: '.select2-container',
 		linked: '.tribe-dependent-linked'
 	};
 
@@ -101,7 +101,7 @@
 		}
 
 		// Fetch dependent elements
-		var $dependents = $document.find( '[data-depends="' + selector + '"]' ).not( '.selectWoo-container' );
+		var $dependents = $document.find( '[data-depends="' + selector + '"]' ).not( '.select2-container' );
 		if ( 0 === $dependents.length ) {
 			return;
 		}
@@ -183,7 +183,7 @@
 				$dependent.find( obj.selectors.fields ).prop( 'disabled', false );
 
 				if ( 'undefined' !== typeof $().selectWoo ) {
-					$dependent.find( '.selectWoo-container' ).selectWoo( 'enable', true );
+					$dependent.find( '.select2-container' ).selectWoo( 'enable', true );
 				}
 			} else {
 				$dependent.removeClass( activeClass );
@@ -198,7 +198,7 @@
 				}
 
 				if ( 'undefined' !== typeof $().selectWoo ) {
-					$dependent.find( '.selectWoo-container' ).selectWoo( 'enable', false );
+					$dependent.find( '.select2-container' ).selectWoo( 'enable', false );
 				}
 
 				if ( $dependent.data( 'select2' ) ) {
