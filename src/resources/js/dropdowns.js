@@ -367,7 +367,7 @@ var tribe_dropdowns = tribe_dropdowns || {};
 		// Save data on Dropdown
 		$select.data( 'dropdown', args );
 
-		$container = ( $select.select2( args ) ).select2( 'container' );
+		$container = ( $select.selectWoo( args ) ).selectWoo( 'container' );
 
 		if ( carryOverData.length > 0 ) {
 			carryOverData.map( function ( dataKey ) {
@@ -442,11 +442,11 @@ var tribe_dropdowns = tribe_dropdowns || {};
 	 */
 	obj.action_bugfix_group_select = function( event ) {
 		var $select = $( this ),
-			items = $select.select2( 'data' ),
-			$drop = $( '.select2-drop:visible' );
+			items = $select.selectWoo( 'data' ),
+			$drop = $( '.selectWoo-drop:visible' );
 
 		// Loop on all selected items to see which match our bug
-		$drop.find( '.select2-selected' ).each( function(  ) {
+		$drop.find( '.selectWoo-selected' ).each( function(  ) {
 			var $item = $( this ),
 				item = $item.data( 'select2-data' ),
 				remove = true;
@@ -472,7 +472,7 @@ var tribe_dropdowns = tribe_dropdowns || {};
 
 	obj.action_select2_close = function( event ) {
 		var $select = $( this ),
-			$search = $( '.select2-drop .select2-input.select2-focused' );
+			$search = $( '.selectWoo-drop .selectWoo-input.selectWoo-focused' );
 
 		// If we had a value we apply it again
 		if ( $select.is( '[data-sticky-search]' ) ) {
@@ -482,7 +482,7 @@ var tribe_dropdowns = tribe_dropdowns || {};
 
 	obj.action_select2_open = function( event ) {
 		var $select = $( this ),
-			$search = $( '.select2-drop .select2-input:visible' );
+			$search = $( '.selectWoo-drop .selectWoo-input:visible' );
 
 		// If we have a placeholder for search, apply it!
 		if ( $select.is( '[data-search-placeholder]' ) ) {
@@ -510,7 +510,7 @@ var tribe_dropdowns = tribe_dropdowns || {};
 	 * @return {jQuery}         Affected fields
 	 */
 	obj.dropdown = function( $fields, args ) {
-		var $elements = $fields.not( '.select2-offscreen, .select2-container, ' + obj.selector.created.className() );
+		var $elements = $fields.not( '.selectWoo-offscreen, .selectWoo-container, ' + obj.selector.created.className() );
 
 		if ( 0 === $elements.length ) {
 			return $elements;

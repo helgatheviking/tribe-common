@@ -29,7 +29,7 @@
 		dependency: '.tribe-dependency',
 		dependencyVerified: '.tribe-dependency-verified',
 		fields: 'input, select, textarea',
-		advanced_fields: '.select2-container',
+		advanced_fields: '.selectWoo-container',
 		linked: '.tribe-dependent-linked'
 	};
 
@@ -101,7 +101,7 @@
 		}
 
 		// Fetch dependent elements
-		var $dependents = $document.find( '[data-depends="' + selector + '"]' ).not( '.select2-container' );
+		var $dependents = $document.find( '[data-depends="' + selector + '"]' ).not( '.selectWoo-container' );
 		if ( 0 === $dependents.length ) {
 			return;
 		}
@@ -182,8 +182,8 @@
 
 				$dependent.find( obj.selectors.fields ).prop( 'disabled', false );
 
-				if ( 'undefined' !== typeof $().select2 ) {
-					$dependent.find( '.select2-container' ).select2( 'enable', true );
+				if ( 'undefined' !== typeof $().selectWoo ) {
+					$dependent.find( '.selectWoo-container' ).selectWoo( 'enable', true );
 				}
 			} else {
 				$dependent.removeClass( activeClass );
@@ -197,8 +197,8 @@
 					$dependent.find( obj.selectors.fields ).prop( 'disabled', true );
 				}
 
-				if ( 'undefined' !== typeof $().select2 ) {
-					$dependent.find( '.select2-container' ).select2( 'enable', false );
+				if ( 'undefined' !== typeof $().selectWoo ) {
+					$dependent.find( '.selectWoo-container' ).selectWoo( 'enable', false );
 				}
 
 				if ( $dependent.data( 'select2' ) ) {
