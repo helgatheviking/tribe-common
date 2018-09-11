@@ -4,6 +4,7 @@
 
 = [4.7.21] TBD =
 * Fix - Only load customizer css when loading main stylesheets or widget stylesheets of PRO [112127]
+* Fix - Replace Select2 with SelectWoo [44205]
 
 = [4.7.20] TBD =
 
@@ -13,7 +14,6 @@
 * Tweak - Removed filters: `tribe_template_base_path`
 * Add - Added is_string_or_empty, is_image_or_empty, is_url_or_empty variations for REST API validation of values that are allowed to be set as empty [108834]
 * Fix - When option to avoid creating duplicate Organizers/Venues is enabled, we now exclude trash and autodraft posts when looking up potential duplicates [113882]
-
 
 = [4.7.19] 2018-08-22 =
 * Fix - Add the following datepicker formats to the validation script: YYYY.MM.DD, MM.DD.YYYY, DD.MM.YYYY [102815]
