@@ -183,7 +183,7 @@
 				$dependent.find( obj.selectors.fields ).prop( 'disabled', false );
 
 				if ( 'undefined' !== typeof $().selectWoo ) {
-					$dependent.find( '.select2-container' ).selectWoo( 'enable', true );
+					$dependent.find( '.select2-container' ).select2( 'enable', true );
 				}
 			} else {
 				$dependent.removeClass( activeClass );
@@ -198,7 +198,7 @@
 				}
 
 				if ( 'undefined' !== typeof $().selectWoo ) {
-					$dependent.find( '.select2-container' ).selectWoo( 'enable', false );
+					$dependent.find( '.select2-container' ).select2( 'enable', false );
 				}
 
 				if ( $dependent.data( 'select2' ) ) {

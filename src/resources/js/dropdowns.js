@@ -367,7 +367,7 @@ var tribe_dropdowns = tribe_dropdowns || {};
 		// Save data on Dropdown
 		$select.data( 'dropdown', args );
 
-		$container = ( $select.selectWoo( args ) ).selectWoo( 'container' );
+		$container = ( $select.select2( args ) ).select2( 'container' );
 
 		if ( carryOverData.length > 0 ) {
 			carryOverData.map( function ( dataKey ) {
@@ -442,7 +442,7 @@ var tribe_dropdowns = tribe_dropdowns || {};
 	 */
 	obj.action_bugfix_group_select = function( event ) {
 		var $select = $( this ),
-			items = $select.selectWoo( 'data' ),
+			items = $select.select2( 'data' ),
 			$drop = $( '.select2-drop:visible' );
 
 		// Loop on all selected items to see which match our bug
