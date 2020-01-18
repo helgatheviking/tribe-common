@@ -361,7 +361,7 @@ class Tribe__Assets {
 	 * @since 4.3
 	 *
 	 * @param object            $origin    The main object for the plugin you are enqueueing the asset for.
-	 * @param string            $slug      Slug to save the asset - passes through `sanitize_title_with_dashes()`.
+	 * @param string            $slug      Slug to save the asset.
 	 * @param string            $file      The asset file to load (CSS or JS), including non-minified file extension.
 	 * @param array             $deps      The list of dependencies.
 	 * @param string|array|null $action    The WordPress action(s) to enqueue on, such as `wp_enqueue_scripts`,
@@ -389,9 +389,6 @@ class Tribe__Assets {
 	 * @return object|false The registered object or false on error.
 	 */
 	public function register( $origin, $slug, $file, $deps = [], $action = null, $arguments = [] ) {
-		// Prevent weird stuff here.
-		$slug = sanitize_title_with_dashes( $slug );
-
 		if ( $this->exists( $slug ) ) {
 			return $this->get( $slug );
 		}
@@ -627,7 +624,6 @@ class Tribe__Assets {
 		if ( is_array( $slug ) ) {
 			$assets = [];
 			foreach ( $slug as $asset_slug ) {
-				$asset_slug = sanitize_title_with_dashes( $asset_slug );
 				// Skip empty assets.
 				if ( empty( $this->assets[ $asset_slug ] ) ) {
 					continue;
@@ -648,9 +644,6 @@ class Tribe__Assets {
 			return $assets;
 		}
 
-		// Prevent weird stuff here.
-		$slug = sanitize_title_with_dashes( $slug );
-
 		if ( ! empty( $this->assets[ $slug ] ) ) {
 			return $this->assets[ $slug ];
 		}
@@ -666,6 +659,6 @@ class Tribe__Assets {
 	 * @return bool
 	 */
 	public function exists( $slug ) {
-		return is_object( $this->get( $slug ) ) ? true : false;
+		return ! empty( $this->assets[ $slug ] ) ? true : false;
 	}
 }

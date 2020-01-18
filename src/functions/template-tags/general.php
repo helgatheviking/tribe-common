@@ -86,13 +86,13 @@ if ( ! function_exists( 'tribe_resource_url' ) ) {
 			$resources_path = 'src/resources/';
 			switch ( $extension ) {
 				case 'css':
-					$resource_path = $resources_path .'css/';
+					$resource_path = $resources_path . 'css/';
 					break;
 				case 'js':
-					$resource_path = $resources_path .'js/';
+					$resource_path = $resources_path . 'js/';
 					break;
 				case 'scss':
-					$resource_path = $resources_path .'scss/';
+					$resource_path = $resources_path . 'scss/';
 					break;
 				default:
 					$resource_path = $resources_path;
@@ -108,10 +108,15 @@ if ( ! function_exists( 'tribe_resource_url' ) ) {
 			$plugin_path = trailingslashit( dirname( dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) ) );
 		}
 
-		$file = wp_normalize_path( $plugin_path . $path );
+		$base_urls = tribe_get_var( __FUNCTION__, [] );
+
+		if ( empty( $base_urls[ $plugin_path ] ) ) {
+			$base_urls[ $plugin_path ] = plugins_url( basename( $plugin_path ), $plugin_path );
+			tribe_set_var( __FUNCTION__, $base_urls );
+		}
 
 		// Turn the Path into a URL
-		$url = plugins_url( basename( $file ), $file );
+		$url = $base_urls[ $plugin_path ] . '/' . $path;
 
 		/**
 		 * Filters the resource URL
