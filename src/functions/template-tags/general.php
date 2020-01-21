@@ -627,7 +627,7 @@ function tribe_asset( $origin, $slug, $file, $deps = [], $action = null, $argume
  */
 function tribe_asset_enqueue( $slug ) {
 	/** @var Tribe__Assets $assets */
-	$assets = tribe( 'assets' );
+	$assets = tribe( Tribe__Assets::class );
 
 	$assets->enqueue( $slug );
 }

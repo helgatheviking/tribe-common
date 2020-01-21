@@ -550,36 +550,36 @@ class Tribe__Main {
 	 * Registers the slug bound to the implementations in the container.
 	 */
 	public function bind_implementations() {
-		tribe_singleton( 'settings.manager', 'Tribe__Settings_Manager' );
-		tribe_singleton( 'settings', 'Tribe__Settings', array( 'hook' ) );
-		tribe_singleton( 'ajax.dropdown', 'Tribe__Ajax__Dropdown', array( 'hook' ) );
-		tribe_singleton( 'assets', 'Tribe__Assets' );
-		tribe_singleton( 'assets.pipeline', 'Tribe__Assets_Pipeline', array( 'hook' ) );
-		tribe_singleton( 'asset.data', 'Tribe__Asset__Data', array( 'hook' ) );
-		tribe_singleton( 'admin.helpers', 'Tribe__Admin__Helpers' );
-		tribe_singleton( 'tracker', 'Tribe__Tracker', array( 'hook' ) );
-		tribe_singleton( 'chunker', 'Tribe__Meta__Chunker', array( 'set_post_types', 'hook' ) );
-		tribe_singleton( 'cache', 'Tribe__Cache', [ 'hook' ] );
-		tribe_singleton( 'languages.locations', 'Tribe__Languages__Locations' );
+		tribe_singleton( 'settings.manager', Tribe__Settings_Manager::class );
+		tribe_singleton( 'settings', Tribe__Settings::class, [ 'hook' ] );
+		tribe_singleton( 'ajax.dropdown', Tribe__Ajax__Dropdown::class, [ 'hook' ] );
+		tribe_singleton( [ 'assets', Tribe__Assets::class ], Tribe__Assets::class );
+		tribe_singleton( 'assets.pipeline', Tribe__Assets_Pipeline::class, [ 'hook' ] );
+		tribe_singleton( 'asset.data', Tribe__Asset__Data::class, [ 'hook' ] );
+		tribe_singleton( 'admin.helpers', Tribe__Admin__Helpers::class );
+		tribe_singleton( 'tracker', Tribe__Tracker::class, [ 'hook' ] );
+		tribe_singleton( 'chunker', Tribe__Meta__Chunker::class, array( 'set_post_types', 'hook' ) );
+		tribe_singleton( 'cache', Tribe__Cache::class, [ 'hook' ] );
+		tribe_singleton( 'languages.locations', Tribe__Languages__Locations::class );
 		tribe_singleton( 'plugins.api', new Tribe__Plugins_API );
-		tribe_singleton( 'logger', 'Tribe__Log' );
-		tribe_singleton( 'cost-utils', array( 'Tribe__Cost_Utils', 'instance' ) );
-		tribe_singleton( 'post-duplicate.strategy-factory', 'Tribe__Duplicate__Strategy_Factory' );
-		tribe_singleton( 'post-duplicate', 'Tribe__Duplicate__Post' );
-		tribe_singleton( 'context', 'Tribe__Context' );
-		tribe_singleton( 'post-transient', 'Tribe__Post_Transient' );
-		tribe_singleton( 'db', 'Tribe__Db' );
-		tribe_singleton( 'freemius', 'Tribe__Freemius' );
+		tribe_singleton( 'logger', Tribe__Log::class );
+		tribe_singleton( 'cost-utils', [ Tribe__Cost_Utils::class, 'instance' ] );
+		tribe_singleton( 'post-duplicate.strategy-factory', Tribe__Duplicate__Strategy_Factory::class );
+		tribe_singleton( 'post-duplicate', Tribe__Duplicate__Post::class );
+		tribe_singleton( [ 'context', Tribe__Context::class ], Tribe__Context::class );
+		tribe_singleton( 'post-transient', Tribe__Post_Transient::class );
+		tribe_singleton( 'db', Tribe__Db::class );
+		tribe_singleton( 'freemius', Tribe__Freemius::class );
 
 		tribe_singleton( Tribe__Dependency::class, Tribe__Dependency::class );
 
-		tribe_singleton( 'callback', 'Tribe__Utils__Callback' );
-		tribe_singleton( 'pue.notices', 'Tribe__PUE__Notices' );
+		tribe_singleton( 'callback', Tribe__Utils__Callback::class );
+		tribe_singleton( 'pue.notices', Tribe__PUE__Notices::class );
 
 		tribe_singleton( Tribe__Admin__Help_Page::class, Tribe__Admin__Help_Page::class );
 
-		tribe_singleton( 'admin.notice.php.version', 'Tribe__Admin__Notice__Php_Version', array( 'hook' ) );
-		tribe_singleton( 'admin.notice.marketing', 'Tribe__Admin__Notice__Marketing', array( 'hook' ) );
+		tribe_singleton( 'admin.notice.php.version', Tribe__Admin__Notice__Php_Version::class, [ 'hook' ] );
+		tribe_singleton( 'admin.notice.marketing', Tribe__Admin__Notice__Marketing::class, [ 'hook' ] );
 
 		tribe_register_provider( Tribe__Editor__Provider::class );
 		tribe_register_provider( Tribe__Service_Providers__Debug_Bar::class );
@@ -598,7 +598,7 @@ class Tribe__Main {
 	 * @since 4.9.20
 	 */
 	public function promoter_connector() {
-		tribe_singleton( 'promoter.connector', 'Tribe__Promoter__Connector' );
+		tribe_singleton( 'promoter.connector', Tribe__Promoter__Connector::class );
 
 		add_filter(
 			'determine_current_user',
